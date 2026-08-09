@@ -15,6 +15,7 @@ offset_bottom = 40.0
 
 [node name="OptionButton_WaterPressure" type="OptionButton" parent="VBoxContainer" unique_id=1297549586]
 layout_mode = 2
+selected = 0
 item_count = 5
 popup/item_0/text = "LV1"
 popup/item_0/id = 0
@@ -29,12 +30,37 @@ popup/item_4/id = 4
 
 [node name="OptionButton_FoamType" type="OptionButton" parent="VBoxContainer" unique_id=319602273]
 layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "A_Foam"
+popup/item_0/id = 0
+popup/item_1/text = "B_Foam"
+popup/item_1/id = 1
 
 [node name="OptionButton_WaxType" type="OptionButton" parent="VBoxContainer" unique_id=730779118]
 layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "A_Wax"
+popup/item_0/id = 0
+popup/item_1/text = "B_Wax"
+popup/item_1/id = 1
 
 [node name="OptionButton_AirPressure" type="OptionButton" parent="VBoxContainer" unique_id=1608530156]
 layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "LV1"
+popup/item_0/id = 0
+popup/item_1/text = "LV2"
+popup/item_1/id = 1
+popup/item_2/text = "LV3"
+popup/item_2/id = 2
+popup/item_3/text = "LV4"
+popup/item_3/id = 3
+popup/item_4/text = "LV5"
+popup/item_4/id = 4
 
 [node name="Button_WriteParameter" type="Button" parent="VBoxContainer" unique_id=1100814307]
 layout_mode = 2
+text = "Setting Parameter"
