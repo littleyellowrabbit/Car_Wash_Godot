@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://bpsy67gmn8qwy"]
 
-[node name="Node" type="Node" unique_id=1721747738]
+[node name="Control" type="Control" unique_id=133467114]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=587841590]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 72.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=946878943]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 74.0
+offset_right = 1151.0
+offset_bottom = 650.0

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cj4bkq5d1iyxj"]
+
+[node name="Control" type="Control" unique_id=328745612]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2116024567]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 70.0
+offset_right = 764.0
+offset_bottom = 464.0
+
+[node name="Tree_UserList" type="Tree" parent="HBoxContainer" unique_id=2086872668]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="VBoxContainer_AdjustUser" type="VBoxContainer" parent="HBoxContainer" unique_id=712899230]
+layout_mode = 2
+
+[node name="LineEdit_ID" type="LineEdit" parent="HBoxContainer/VBoxContainer_AdjustUser" unique_id=1498810391]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "ID"
+
+[node name="LineEdit_Password" type="LineEdit" parent="HBoxContainer/VBoxContainer_AdjustUser" unique_id=448689200]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Password"
+
+[node name="OptionButton_Permission" type="OptionButton" parent="HBoxContainer/VBoxContainer_AdjustUser" unique_id=1361995771]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 4
+popup/item_0/text = "Administrator"
+popup/item_0/id = 0
+popup/item_1/text = "Engineer"
+popup/item_1/id = 1
+popup/item_2/text = "Operator"
+popup/item_2/id = 2
+popup/item_3/text = "Customer"
+popup/item_3/id = 3
+
+[node name="Button_AddUser" type="Button" parent="HBoxContainer/VBoxContainer_AdjustUser" unique_id=656105874]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Add"
+
+[node name="Button_DeleteUser" type="Button" parent="HBoxContainer/VBoxContainer_AdjustUser" unique_id=1571956765]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Delete"
+
+[node name="Label_Result" type="Label" parent="HBoxContainer/VBoxContainer_AdjustUser" unique_id=1048594093]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_vertical = 3

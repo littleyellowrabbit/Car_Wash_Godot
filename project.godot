@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Wash_Car"
+run/main_scene="uid://cs63txv3vg7jl"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

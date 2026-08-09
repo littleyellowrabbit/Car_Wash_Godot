@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ww51es8x3upi"]
+
+[node name="Control" type="Control" unique_id=244739573]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer_Process" type="VBoxContainer" parent="." unique_id=582113055]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label_Process" type="Label" parent="VBoxContainer_Process" unique_id=52542196]
+layout_mode = 2
+
+[node name="VBoxContainer_HandShake" type="VBoxContainer" parent="VBoxContainer_Process" unique_id=969847553]
+layout_mode = 2
+
+[node name="CheckBox_PreClean" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=552243317]
+layout_mode = 2
+
+[node name="CheckBox_ChemicalSoft" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=87082054]
+layout_mode = 2
+
+[node name="CheckBox_PhysicalClean" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=1261199677]
+layout_mode = 2
+
+[node name="CheckBox_WaxProtect" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=1938908527]
+layout_mode = 2
+
+[node name="CheckBox_DryAir" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=1584576121]
+layout_mode = 2

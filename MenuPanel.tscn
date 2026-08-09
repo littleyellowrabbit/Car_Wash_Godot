@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cs63txv3vg7jl"]
+
+[ext_resource type="Texture2D" uid="uid://dmdmmy0asbcvy" path="res://Pictures/Login_Normal.png" id="1_0kt34"]
+[ext_resource type="Texture2D" uid="uid://cqr20et5aybm1" path="res://Pictures/Login_Press.png" id="2_ksnff"]
+[ext_resource type="Texture2D" uid="uid://d3mqbccdvcul3" path="res://Pictures/Login_Hover.png" id="3_xyxw4"]
+
+[node name="Control" type="Control" unique_id=132840202]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer_SideBar" type="HBoxContainer" parent="." unique_id=952320179]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton_Login" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=193373312]
+layout_mode = 2
+texture_normal = ExtResource("1_0kt34")
+texture_pressed = ExtResource("2_ksnff")
+texture_hover = ExtResource("3_xyxw4")
+
+[node name="TextureButton_User" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=506587073]
+layout_mode = 2
+
+[node name="TextureButton_KeyParameter" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=844998475]
+layout_mode = 2
+
+[node name="TextureButton_Status" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=12477322]
+layout_mode = 2
+
+[node name="TextureButton_History" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=1419523954]
+layout_mode = 2
