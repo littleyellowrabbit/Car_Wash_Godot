@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cs63txv3vg7jl"]
 
 [ext_resource type="Texture2D" uid="uid://dmdmmy0asbcvy" path="res://Pictures/Login_Normal.png" id="1_0kt34"]
+[ext_resource type="Script" uid="uid://bcmc4he4gx5s7" path="res://script/menu_panel.gd" id="1_im768"]
 [ext_resource type="Texture2D" uid="uid://cqr20et5aybm1" path="res://Pictures/Login_Press.png" id="2_ksnff"]
 [ext_resource type="Texture2D" uid="uid://d3mqbccdvcul3" path="res://Pictures/Login_Hover.png" id="3_xyxw4"]
 [ext_resource type="Texture2D" uid="uid://n027hkma8ads" path="res://Pictures/User_Normal.png" id="4_4p1tl"]
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_im768")
 
 [node name="HBoxContainer_SideBar" type="HBoxContainer" parent="." unique_id=952320179]
 layout_mode = 0

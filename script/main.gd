@@ -1,11 +1,36 @@
 extends Control
 
+var scene_login_file = load("res://Login.tscn")
+var scene_keyparameter_file = load("res://KeyParameter.tscn")
+var scene_user_file = load("res://User.tscn")
+var scene_menupanel_file = load("res://MenuPanel.tscn")
+var scene_status_file = load("res://Status.tscn")
 
-# Called when the node enters the scene tree for the first time.
+@onready var side_bar : PanelContainer = $PanelContainer_Up
+@onready var main_panel : MarginContainer = $MarginContainer_Main
+@onready var scene_login = scene_login_file.instantiate()
+@onready var scene_keyparameter = scene_keyparameter_file.instantiate()
+@onready var scene_user = scene_user_file.instantiate()
+@onready var scene_menupanel = scene_menupanel_file.instantiate()
+@onready var scene_status = scene_status_file.instantiate()
+
 func _ready() -> void:
-	pass # Replace with function body.
+	side_bar.add_child(scene_menupanel)
+	main_panel.add_child(scene_status)
+	
+	SignalManager.change_main_panel_to_login.connect(func(): _change_main_panel(scene_login))
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+
+func _change_main_panel(scene: Node) -> void:
+	if scene_login.get_parent() == main_panel:
+		main_panel.remove_child(scene_login)
+	if scene_keyparameter.get_parent() == main_panel:
+		main_panel.remove_child(scene_keyparameter)
+	if scene_user.get_parent() == main_panel:
+		main_panel.remove_child(scene_user)
+	if scene_status.get_parent() == main_panel:
+		main_panel.remove_child(scene_status)
+	main_panel.add_child(scene)

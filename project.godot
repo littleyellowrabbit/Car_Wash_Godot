@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Wash_Car"
-run/main_scene="uid://cs63txv3vg7jl"
+run/main_scene="uid://bpsy67gmn8qwy"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalManager="*uid://c4elpsei7q3y5"
 
 [physics]
 
