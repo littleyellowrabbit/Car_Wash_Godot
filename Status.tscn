@@ -1,5 +1,101 @@
 [gd_scene format=3 uid="uid://ww51es8x3upi"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efkes"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.24313726, 0.6039216, 0.9019608, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4nki"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.849, 1.616, 2.121, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a02yn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.21715789, 0.319906, 0.44333258, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j74f2"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.78431374, 0.84313726, 0.9764706, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ase06"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(4.3302517, 0.23841406, 0.3366608, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oumj5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.849, 1.616, 2.121, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0aeg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.4467708, 0.14296164, 0.08315837, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vo8y3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.78431374, 0.84313726, 0.9764706, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="Control" type="Control" unique_id=244739573]
 layout_mode = 3
 anchors_preset = 15
@@ -8,28 +104,188 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer_Process" type="VBoxContainer" parent="." unique_id=582113055]
+[node name="VBoxContainer_PresentSet" type="VBoxContainer" parent="." unique_id=348836278]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 208.0
+offset_right = 375.0
+offset_bottom = 136.0
 
-[node name="Label_Process" type="Label" parent="VBoxContainer_Process" unique_id=52542196]
+[node name="LineEdit_WaterPressure" type="LineEdit" parent="VBoxContainer_PresentSet" unique_id=2009061929]
 layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+placeholder_text = "WaterPressure"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 
-[node name="VBoxContainer_HandShake" type="VBoxContainer" parent="VBoxContainer_Process" unique_id=969847553]
+[node name="LineEdit_FoamType" type="LineEdit" parent="VBoxContainer_PresentSet" unique_id=1330677891]
 layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+placeholder_text = "FoamType"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 
-[node name="CheckBox_PreClean" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=552243317]
+[node name="LineEdit_WaxType" type="LineEdit" parent="VBoxContainer_PresentSet" unique_id=1241543379]
 layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+placeholder_text = "WaxType"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 
-[node name="CheckBox_ChemicalSoft" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=87082054]
+[node name="LineEdit_AirPressure" type="LineEdit" parent="VBoxContainer_PresentSet" unique_id=589156711]
 layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+placeholder_text = "AirPressure"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
 
-[node name="CheckBox_PhysicalClean" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=1261199677]
-layout_mode = 2
+[node name="VBoxContainer_MachineHandShake" type="VBoxContainer" parent="." unique_id=1971966712]
+layout_mode = 0
+offset_left = 130.0
+offset_right = 194.0
+offset_bottom = 136.0
 
-[node name="CheckBox_WaxProtect" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=1938908527]
+[node name="CheckBox_Water" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=509874717]
 layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "Water"
 
-[node name="CheckBox_DryAir" type="Button" parent="VBoxContainer_Process/VBoxContainer_HandShake" unique_id=1584576121]
+[node name="CheckBox_Foam" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=751420359]
 layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "Foam"
+
+[node name="CheckBox_Wax" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=1235837297]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "Wax"
+
+[node name="CheckBox_Air" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=1586707190]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "Air"
+
+[node name="VBoxContainer_HandShake" type="VBoxContainer" parent="." unique_id=969847553]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 115.0
+offset_bottom = 206.0
+
+[node name="CheckBox_Standby" type="Button" parent="VBoxContainer_HandShake" unique_id=1571234718]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "Standby"
+
+[node name="CheckBox_PreClean" type="Button" parent="VBoxContainer_HandShake" unique_id=552243317]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "PreClean"
+
+[node name="CheckBox_ChemicalSoft" type="Button" parent="VBoxContainer_HandShake" unique_id=87082054]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "ChemicalSoft"
+
+[node name="CheckBox_PhysicalClean" type="Button" parent="VBoxContainer_HandShake" unique_id=1261199677]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "PhysicalClean"
+
+[node name="CheckBox_WaxProtect" type="Button" parent="VBoxContainer_HandShake" unique_id=1938908527]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "WaxProtect"
+
+[node name="CheckBox_DryAir" type="Button" parent="VBoxContainer_HandShake" unique_id=1584576121]
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+text = "DryAir"
+
+[node name="Button_Start" type="Button" parent="." unique_id=2030993867]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 245.0
+offset_right = 291.0
+offset_bottom = 277.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_efkes")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4nki")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a02yn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j74f2")
+text = "Start"
+
+[node name="Button_Stop" type="Button" parent="." unique_id=103971954]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 245.0
+offset_right = 371.0
+offset_bottom = 277.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ase06")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oumj5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e0aeg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vo8y3")
+text = "Stop"
+
+[node name="Label" type="LineEdit" parent="." unique_id=703522289]
+custom_minimum_size = Vector2(30, 20)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 245.0
+offset_right = 115.0
+offset_bottom = 276.0
+focus_mode = 0
+mouse_filter = 2
+placeholder_text = "ElapseTime"
+alignment = 1
+max_length = 10
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false

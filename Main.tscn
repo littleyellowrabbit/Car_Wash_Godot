@@ -16,13 +16,13 @@ script = ExtResource("1_glv2v")
 
 [node name="PanelContainer_Up" type="PanelContainer" parent="." unique_id=587841590]
 layout_mode = 0
-offset_right = 1154.0
-offset_bottom = 119.0
+offset_right = 381.0
+offset_bottom = 97.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_glv2v")
 
 [node name="MarginContainer_Main" type="MarginContainer" parent="." unique_id=946878943]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 119.0
-offset_right = 1151.0
-offset_bottom = 650.0
+offset_top = 97.0
+offset_right = 378.0
+offset_bottom = 380.0

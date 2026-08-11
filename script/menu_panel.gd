@@ -9,6 +9,9 @@ extends Control
 
 func _ready() -> void:
 	login.pressed.connect(_on_texture_button_login_pressed)
+	user.pressed.connect(_on_texture_button_user_pressed)
+	keyparameter.pressed.connect(_on_texture_button_keyparameter_pressed)
+	status.pressed.connect(_on_texture_button_status_pressed)
 
 
 func _process(delta: float) -> void:

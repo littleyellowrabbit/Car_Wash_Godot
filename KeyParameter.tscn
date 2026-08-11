@@ -10,57 +10,67 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1170470881]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 380.0
+offset_bottom = 274.0
 
 [node name="OptionButton_WaterPressure" type="OptionButton" parent="VBoxContainer" unique_id=1297549586]
 layout_mode = 2
+size_flags_vertical = 3
 selected = 0
 item_count = 5
-popup/item_0/text = "LV1"
+popup/item_0/text = "WaterPressure_LV1"
 popup/item_0/id = 0
-popup/item_1/text = "LV2"
+popup/item_1/text = "WaterPressure_LV2"
 popup/item_1/id = 1
-popup/item_2/text = "LV3"
+popup/item_2/text = "WaterPressure_LV3"
 popup/item_2/id = 2
-popup/item_3/text = "LV4"
+popup/item_3/text = "WaterPressure_LV4"
 popup/item_3/id = 3
-popup/item_4/text = "LV5"
+popup/item_4/text = "WaterPressure_LV5"
 popup/item_4/id = 4
 
 [node name="OptionButton_FoamType" type="OptionButton" parent="VBoxContainer" unique_id=319602273]
 layout_mode = 2
+size_flags_vertical = 3
 selected = 0
 item_count = 2
-popup/item_0/text = "A_Foam"
+popup/item_0/text = "Foam_A"
 popup/item_0/id = 0
-popup/item_1/text = "B_Foam"
+popup/item_1/text = "Foam_B"
 popup/item_1/id = 1
 
 [node name="OptionButton_WaxType" type="OptionButton" parent="VBoxContainer" unique_id=730779118]
 layout_mode = 2
+size_flags_vertical = 3
 selected = 0
 item_count = 2
-popup/item_0/text = "A_Wax"
+popup/item_0/text = "Wax_A"
 popup/item_0/id = 0
-popup/item_1/text = "B_Wax"
+popup/item_1/text = "Wax_B"
 popup/item_1/id = 1
 
 [node name="OptionButton_AirPressure" type="OptionButton" parent="VBoxContainer" unique_id=1608530156]
 layout_mode = 2
+size_flags_vertical = 3
 selected = 0
 item_count = 5
-popup/item_0/text = "LV1"
+popup/item_0/text = "AirPressure_LV1"
 popup/item_0/id = 0
-popup/item_1/text = "LV2"
+popup/item_1/text = "AirPressure_LV2"
 popup/item_1/id = 1
-popup/item_2/text = "LV3"
+popup/item_2/text = "AirPressure_LV3"
 popup/item_2/id = 2
-popup/item_3/text = "LV4"
+popup/item_3/text = "AirPressure_LV4"
 popup/item_3/id = 3
-popup/item_4/text = "LV5"
+popup/item_4/text = "AirPressure_LV5"
 popup/item_4/id = 4
 
 [node name="Button_WriteParameter" type="Button" parent="VBoxContainer" unique_id=1100814307]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Setting Parameter"
+
+[node name="Label_Result" type="Label" parent="VBoxContainer" unique_id=1619674892]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+size_flags_vertical = 3

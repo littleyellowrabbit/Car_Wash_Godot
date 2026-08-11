@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 SignalManager="*uid://c4elpsei7q3y5"
 
+[display]
+
+window/size/viewport_width=380
+window/size/viewport_height=380
+window/stretch/aspect="ignore"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

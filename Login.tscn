@@ -9,27 +9,35 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=760365605]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 0
-offset_left = 158.0
-offset_top = 46.0
-offset_right = 512.0
-offset_bottom = 343.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 377.0
+offset_bottom = 275.0
 
 [node name="LineEdit_ID" type="LineEdit" parent="VBoxContainer" unique_id=1983156156]
+custom_minimum_size = Vector2(60, 35)
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "ID"
+max_length = 20
 
 [node name="LineEdit_Password" type="LineEdit" parent="VBoxContainer" unique_id=317542524]
+custom_minimum_size = Vector2(60, 35)
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "Password"
+max_length = 20
+secret = true
 
 [node name="Button_Login" type="Button" parent="VBoxContainer" unique_id=716159220]
+custom_minimum_size = Vector2(60, 35)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Login"
 
 [node name="Label_Result" type="Label" parent="VBoxContainer" unique_id=1649359334]
+custom_minimum_size = Vector2(60, 35)
 layout_mode = 2
 size_flags_vertical = 3
