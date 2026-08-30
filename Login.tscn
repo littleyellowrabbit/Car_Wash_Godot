@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://da38qtsxbds4p"]
 
+[ext_resource type="Script" uid="uid://c7xul687sbli7" path="res://script/login.gd" id="1_6uxbt"]
+
 [node name="Control" type="Control" unique_id=495910059]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6uxbt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=760365605]
 custom_minimum_size = Vector2(200, 100)
@@ -36,6 +39,12 @@ custom_minimum_size = Vector2(60, 35)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Login"
+
+[node name="Button_Logout" type="Button" parent="VBoxContainer" unique_id=1038603945]
+custom_minimum_size = Vector2(60, 35)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Logout"
 
 [node name="Label_Result" type="Label" parent="VBoxContainer" unique_id=1649359334]
 custom_minimum_size = Vector2(60, 35)

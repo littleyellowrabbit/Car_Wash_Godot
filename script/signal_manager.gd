@@ -14,8 +14,6 @@ func _ready() -> void:
 	change_to_keyparameter.connect(_change_main_panel_keyparameter)
 	change_to_status.connect(_change_main_panel_status)
 
-func _process(delta: float) -> void:
-	pass
 
 func _change_main_panel_login() -> void:
 	change_main_panel_to_login.emit()

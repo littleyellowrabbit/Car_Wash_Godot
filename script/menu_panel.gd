@@ -14,10 +14,6 @@ func _ready() -> void:
 	status.pressed.connect(_on_texture_button_status_pressed)
 
 
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_texture_button_login_pressed() -> void:
 	SignalManager.change_to_login.emit()
 	

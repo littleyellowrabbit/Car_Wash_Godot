@@ -23,9 +23,6 @@ func _ready() -> void:
 	SignalManager.change_main_panel_to_keyparameter.connect(func(): _change_main_panel(scene_keyparameter))
 	SignalManager.change_main_panel_to_status.connect(func(): _change_main_panel(scene_status))
 
-func _process(delta: float) -> void:
-	pass
-	
 
 func _change_main_panel(scene: Node) -> void:
 	if scene_login.get_parent() == main_panel:

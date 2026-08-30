@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalManager="*uid://c4elpsei7q3y5"
+Jwt="*uid://gc770x2cprgv"
+ReadConfig="*uid://dkt17qf84e0fw"
 
 [display]
 
