@@ -70,7 +70,7 @@ func _refresh_token() -> bool:
 	var response = await http_request.request_completed
 	var response_result = response[0]
 	var response_code = response[1]
-	var response_headers = response[2]
+	var _response_headers = response[2]
 	var response_body = response[3]
 	
 	if response_code == 200 and response_result == HTTPRequest.RESULT_SUCCESS:
@@ -79,8 +79,8 @@ func _refresh_token() -> bool:
 		if parse_err == OK:
 			var response_data = json.get_data()
 			Jwt.user_id = response_data.get("id",0)
-			Jwt.permission = response_data.get("permission","")
-			Jwt.exp = response_data.get("exp",0)
+			Jwt.permission = response_data.get("permission","None")
+			Jwt.expire_time = response_data.get("exp",0)
 			Jwt.access_token = response_data.get("access_token","")
 			Jwt.refresh_token = response_data.get("refresh_token","")
 			return true

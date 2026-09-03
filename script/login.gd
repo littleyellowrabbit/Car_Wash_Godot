@@ -11,7 +11,7 @@ func _ready() -> void:
 	button_login.pressed.connect(_login_button_pressed)
 	button_logout.pressed.connect(_logout_button_pressed)
 	
-	SignalManager._force_logout_signal.connect(_force_logout)
+	SignalManager.force_logout_signal.connect(_force_logout)
 
 func _check_login() -> void:
 	if Jwt._is_login() :
@@ -24,6 +24,7 @@ func _check_login() -> void:
 		lineedit_password.visible =true
 		button_login.visible = true
 		button_logout.visible = false	
+	SignalManager.user_information_signal_in.emit()
 
 func _result_edit(text:String) -> void:
 	label_result.text = text
@@ -39,7 +40,7 @@ func _login_button_pressed() -> void:
 	button_login.disabled = false
 	var result = response_args[0]
 	var response_code = response_args[1]
-	var response_headers = response_args[2]
+	var _response_headers = response_args[2]
 	var response_body = response_args[3]
 	if response_code == 200 and result == HTTPRequest.RESULT_SUCCESS:
 		var json = JSON.new()
@@ -47,11 +48,11 @@ func _login_button_pressed() -> void:
 		if parse_err == OK:
 			var response_data = json.get_data()
 			Jwt.user_id = response_data.get("id",0)
-			Jwt.permission = response_data.get("permission","")
-			Jwt.exp = response_data.get("exp",0)
+			Jwt.permission = response_data.get("permission","None")
+			Jwt.expire_time = response_data.get("exp",0)
 			Jwt.access_token = response_data.get("access_token","")
 			Jwt.refresh_token = response_data.get("refresh_token","")
-			
+			Jwt.user_name = lineedit_id.text
 			SignalManager.change_to_status.emit()
 			lineedit_id.text=""
 			lineedit_password.text=""
@@ -83,7 +84,7 @@ func _logout_button_pressed():
 	_check_login()
 	var result = response_args[0]
 	var response_code = response_args[1]
-	var response_headers = response_args[2]
+	var _response_headers = response_args[2]
 	var response_body = response_args[3]
 	
 	if response_code == 200 and result == HTTPRequest.RESULT_SUCCESS:

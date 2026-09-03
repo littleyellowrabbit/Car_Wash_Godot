@@ -9,7 +9,9 @@ signal change_main_panel_to_status()
 signal change_to_status()
 
 signal force_logout()
-signal _force_logout_signal()
+signal force_logout_signal()
+signal user_information_signal_in()
+signal user_information_signal_out()
 
 func _ready() -> void:
 	change_to_login.connect(_change_main_panel_login)
@@ -18,6 +20,8 @@ func _ready() -> void:
 	change_to_status.connect(_change_main_panel_status)
 	
 	force_logout.connect(_force_logout)
+	
+	user_information_signal_in.connect(user_information)
 
 #Main Panel_Change Panel
 func _change_main_panel_login() -> void:
@@ -35,4 +39,8 @@ func _change_main_panel_status() -> void:
 
 #Force logout
 func _force_logout() -> void:
-	_force_logout_signal.emit()
+	force_logout_signal.emit()
+	
+#User information
+func user_information() -> void:
+	user_information_signal_out.emit()
