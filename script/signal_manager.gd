@@ -13,6 +13,11 @@ signal force_logout_signal()
 signal user_information_signal_in()
 signal user_information_signal_out()
 
+signal plc_live_data_in(data: Dictionary)
+signal plc_live_data_out(data: Dictionary)
+signal websocket_connection_in(online: bool)
+signal websocket_connection_out(online: bool)
+
 func _ready() -> void:
 	change_to_login.connect(_change_main_panel_login)
 	change_to_user.connect(_change_main_panel_user)
@@ -22,6 +27,9 @@ func _ready() -> void:
 	force_logout.connect(_force_logout)
 	
 	user_information_signal_in.connect(user_information)
+	
+	plc_live_data_in.connect(plc_live_data)
+	websocket_connection_in.connect(websocket_connection)
 
 #Main Panel_Change Panel
 func _change_main_panel_login() -> void:
@@ -44,3 +52,11 @@ func _force_logout() -> void:
 #User information
 func user_information() -> void:
 	user_information_signal_out.emit()
+	
+#plc data
+func plc_live_data(data: Dictionary) -> void:
+	plc_live_data_out.emit(data)
+	
+#websocket connection
+func websocket_connection(online: bool) -> void:
+	websocket_connection_out.emit(online)
