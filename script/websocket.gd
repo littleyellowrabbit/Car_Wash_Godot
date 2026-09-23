@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 				
 			
 func _try_connect() -> void:
-	var err = socket.connect_url(websocket_url)
+	var err = socket.connect_to_url(websocket_url)
 	if err == OK:
 		SignalManager.websocket_connection_in.emit(true)
 	else:

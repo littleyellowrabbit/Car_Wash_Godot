@@ -22,6 +22,7 @@ Jwt="*uid://gc770x2cprgv"
 ReadConfig="*uid://dkt17qf84e0fw"
 HttpManager="*uid://cmb1rf66mn8q"
 Websocket="*uid://cclgldr38kua6"
+KeyParameter="*uid://bxqcpwn3xwrbh"
 
 [display]
 
