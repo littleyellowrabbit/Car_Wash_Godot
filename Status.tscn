@@ -1,5 +1,37 @@
 [gd_scene format=3 uid="uid://ww51es8x3upi"]
 
+[ext_resource type="Script" uid="uid://bkjwihcdxoeg" path="res://script/status.gd" id="1_u4nki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p207i"]
+bg_color = Color(0.85882354, 0.8117647, 0.5372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp1ei"]
+bg_color = Color(0.85882354, 0.8117647, 0.5372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25wnm"]
+bg_color = Color(0.85882354, 0.8117647, 0.5372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igjnx"]
+bg_color = Color(0.85882354, 0.8117647, 0.5372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y4n3"]
+bg_color = Color(0.3372549, 1, 0.003921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lp6j"]
+bg_color = Color(0.3372549, 1, 0.003921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6i1vx"]
+bg_color = Color(0.3372549, 1, 0.003921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q67n8"]
+bg_color = Color(0.3372549, 1, 0.003921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2orv3"]
+bg_color = Color(0.3372549, 1, 0.003921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndrav"]
+bg_color = Color(0.3372549, 1, 0.003921569, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efkes"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -103,6 +135,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_u4nki")
 
 [node name="VBoxContainer_PresentSet" type="VBoxContainer" parent="." unique_id=348836278]
 layout_mode = 0
@@ -117,6 +150,7 @@ mouse_filter = 2
 placeholder_text = "WaterPressure"
 alignment = 1
 max_length = 10
+editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -132,7 +166,8 @@ focus_mode = 0
 mouse_filter = 2
 placeholder_text = "FoamType"
 alignment = 1
-max_length = 10
+max_length = 20
+editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -148,7 +183,8 @@ focus_mode = 0
 mouse_filter = 2
 placeholder_text = "WaxType"
 alignment = 1
-max_length = 10
+max_length = 20
+editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -165,6 +201,7 @@ mouse_filter = 2
 placeholder_text = "AirPressure"
 alignment = 1
 max_length = 10
+editable = false
 context_menu_enabled = false
 emoji_menu_enabled = false
 shortcut_keys_enabled = false
@@ -180,28 +217,36 @@ offset_left = 130.0
 offset_right = 194.0
 offset_bottom = 136.0
 
-[node name="CheckBox_Water" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=509874717]
+[node name="Button_Water" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=509874717]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p207i")
+toggle_mode = true
 text = "Water"
 
-[node name="CheckBox_Foam" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=751420359]
+[node name="Button_Foam" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=751420359]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yp1ei")
+toggle_mode = true
 text = "Foam"
 
-[node name="CheckBox_Wax" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=1235837297]
+[node name="Button_Wax" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=1235837297]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_25wnm")
+toggle_mode = true
 text = "Wax"
 
-[node name="CheckBox_Air" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=1586707190]
+[node name="Button_Air" type="Button" parent="VBoxContainer_MachineHandShake" unique_id=1586707190]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_igjnx")
+toggle_mode = true
 text = "Air"
 
 [node name="VBoxContainer_HandShake" type="VBoxContainer" parent="." unique_id=969847553]
@@ -210,40 +255,52 @@ offset_left = 1.0
 offset_right = 115.0
 offset_bottom = 206.0
 
-[node name="CheckBox_Standby" type="Button" parent="VBoxContainer_HandShake" unique_id=1571234718]
+[node name="Button_Standby" type="Button" parent="VBoxContainer_HandShake" unique_id=1571234718]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y4n3")
+toggle_mode = true
 text = "Standby"
 
-[node name="CheckBox_PreClean" type="Button" parent="VBoxContainer_HandShake" unique_id=552243317]
+[node name="Button_PreClean" type="Button" parent="VBoxContainer_HandShake" unique_id=552243317]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4lp6j")
+toggle_mode = true
 text = "PreClean"
 
-[node name="CheckBox_ChemicalSoft" type="Button" parent="VBoxContainer_HandShake" unique_id=87082054]
+[node name="Button_ChemicalSoft" type="Button" parent="VBoxContainer_HandShake" unique_id=87082054]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6i1vx")
+toggle_mode = true
 text = "ChemicalSoft"
 
-[node name="CheckBox_PhysicalClean" type="Button" parent="VBoxContainer_HandShake" unique_id=1261199677]
+[node name="Button_PhysicalClean" type="Button" parent="VBoxContainer_HandShake" unique_id=1261199677]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q67n8")
+toggle_mode = true
 text = "PhysicalClean"
 
-[node name="CheckBox_WaxProtect" type="Button" parent="VBoxContainer_HandShake" unique_id=1938908527]
+[node name="Button_WaxProtect" type="Button" parent="VBoxContainer_HandShake" unique_id=1938908527]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2orv3")
+toggle_mode = true
 text = "WaxProtect"
 
-[node name="CheckBox_DryAir" type="Button" parent="VBoxContainer_HandShake" unique_id=1584576121]
+[node name="Button_DryAir" type="Button" parent="VBoxContainer_HandShake" unique_id=1584576121]
 layout_mode = 2
 focus_mode = 0
 mouse_filter = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ndrav")
+toggle_mode = true
 text = "DryAir"
 
 [node name="Button_Start" type="Button" parent="." unique_id=2030993867]
@@ -270,22 +327,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_e0aeg")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_vo8y3")
 text = "Stop"
 
-[node name="Label" type="LineEdit" parent="." unique_id=703522289]
+[node name="Label_ElapseTime" type="Label" parent="." unique_id=1326817076]
 custom_minimum_size = Vector2(30, 20)
 layout_mode = 0
 offset_left = 1.0
 offset_top = 245.0
 offset_right = 115.0
 offset_bottom = 276.0
-focus_mode = 0
-mouse_filter = 2
-placeholder_text = "ElapseTime"
-alignment = 1
-max_length = 10
-context_menu_enabled = false
-emoji_menu_enabled = false
-shortcut_keys_enabled = false
-middle_mouse_paste_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false

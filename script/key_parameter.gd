@@ -10,6 +10,7 @@ extends Control
 
 func _ready() -> void:
 	_check_login()
+	button_writeparameter.pressed.connect(_write_parameter_button_pressed)
 
 func _check_login() -> void:
 	if Jwt._is_login() :
@@ -57,7 +58,7 @@ func _write_parameter_button_pressed() -> void:
 		var result = response_args[0]
 		var response_code = response_args[1]
 		var _response_headers = response_args[2]
-		var response_body = response_args[3]
+		
 		
 		if response_code == 200 and result == HTTPRequest.RESULT_SUCCESS:
 			label_result.text= "Set parameter success.\n" + current_time

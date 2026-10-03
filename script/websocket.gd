@@ -1,14 +1,14 @@
 extends Node
 
-var websocket_url = ReadConfig.api_server_url + "/plc/real_time_data"
-var socket = WebSocketPeer.new()
 
+var socket = WebSocketPeer.new()
+var websocket_url: String
 var reconnect_timer = 0
 var RECONNECT_DELAY = 3
 
 func _ready() -> void:
+	websocket_url = ReadConfig.api_server_url_web + "/plc/real_time_data"
 	_try_connect()
-
 func _process(delta: float) -> void:
 	socket.poll()
 	var state = socket.get_ready_state()
@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		if reconnect_timer > RECONNECT_DELAY :
 			reconnect_timer = 0
 			_try_connect()
-				
+			
 			
 func _try_connect() -> void:
 	var err = socket.connect_to_url(websocket_url)
@@ -38,5 +38,6 @@ func _try_connect() -> void:
 
 func _update_data(data: Dictionary) -> void:
 	SignalManager.plc_live_data_in.emit(data)
+
 	
 	

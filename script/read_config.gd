@@ -1,6 +1,7 @@
 extends Node
 
 var api_server_url : String = ""
+var api_server_url_web : String = ""
 
 func _ready() -> void:
 	var file_path = "res://config/config.json"
@@ -11,3 +12,4 @@ func _ready() -> void:
 			var data = json.get_data()
 			if data is Dictionary:
 				api_server_url = data.get("api_server_url")
+				api_server_url_web = data.get("api_server_url_web")
