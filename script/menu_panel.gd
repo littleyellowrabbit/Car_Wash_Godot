@@ -16,6 +16,7 @@ func _ready() -> void:
 	texturebutton_keyparameter.pressed.connect(_on_texture_button_keyparameter_pressed)
 	texturebutton_status.pressed.connect(_on_texture_button_status_pressed)
 	SignalManager.user_information_signal_out.connect(update_user_and_permission)
+	SignalManager.plc_live_data_out.connect(update_watchdog)
 
 
 func _on_texture_button_login_pressed() -> void:
@@ -37,14 +38,21 @@ func update_user_and_permission() -> void:
 		if Jwt.permission in ["Administrator","Engineer"]:
 			button_disabled(false,[texturebutton_login,texturebutton_user,texturebutton_keyparameter,texturebutton_status])
 		else:
-			button_disabled(false,[texturebutton_login,texturebutton_status])
-			button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
+			#button_disabled(false,[texturebutton_login,texturebutton_status])
+			button_disabled(false,[texturebutton_user,texturebutton_login,texturebutton_status])
+			button_disabled(true,[texturebutton_keyparameter])
+			#button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
 	else:
-		button_disabled(false,[texturebutton_login,texturebutton_status])
-		button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
+		#button_disabled(false,[texturebutton_login,texturebutton_status])
+		button_disabled(false,[texturebutton_user,texturebutton_login,texturebutton_status])
+		button_disabled(true,[texturebutton_keyparameter])
+		#button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
 		label_id.text = "None"
 		label_permission.text = "None"
 		
 func button_disabled(disable:bool,button:Array) -> void:
 	for btn in button:
 				btn.disabled = disable
+
+func update_watchdog(plc_data: Dictionary) -> void:
+	label_watchdog.text = str(int(plc_data.get('watchdog')))

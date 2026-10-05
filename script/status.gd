@@ -31,9 +31,8 @@ func _ready() -> void:
 
 func update_ui(plc_live_data_newer: Dictionary) -> void:
 	var plc_live_data_older = plc_live_data_old
-	print(plc_live_data_newer)
 	if check_value_change(plc_live_data_newer, plc_live_data_older, 'water_pressure'):
-		lineedit_waterpressure.text = str(plc_live_data_newer.get('water_pressure'))
+		lineedit_waterpressure.text = str(int(plc_live_data_newer.get('water_pressure')))
 	
 	if check_value_change(plc_live_data_newer, plc_live_data_older, 'foam_type'):
 		lineedit_foamtype.text = plc_live_data_newer.get('foam_type')
@@ -42,7 +41,7 @@ func update_ui(plc_live_data_newer: Dictionary) -> void:
 		lineedit_waxtype.text = plc_live_data_newer.get('wax_type')
 
 	if check_value_change(plc_live_data_newer, plc_live_data_older, 'air_pressure'):
-		lineedit_airpressure.text = str(plc_live_data_newer.get('air_pressure'))
+		lineedit_airpressure.text = str(int(plc_live_data_newer.get('air_pressure')))
 	
 	
 	

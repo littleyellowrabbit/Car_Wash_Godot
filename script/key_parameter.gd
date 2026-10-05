@@ -13,7 +13,7 @@ func _ready() -> void:
 	button_writeparameter.pressed.connect(_write_parameter_button_pressed)
 
 func _check_login() -> void:
-	if Jwt._is_login() :
+	if not Jwt._is_login() :
 		optionbutton_waterpressure.modulate = Color(0.5,0.5,0.5)
 		optionbutton_foamtype.modulate = Color(0.5,0.5,0.5)
 		optionbutton_waxtype.modulate = Color(0.5,0.5,0.5)

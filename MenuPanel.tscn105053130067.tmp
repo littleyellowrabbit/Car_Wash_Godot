@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cs63txv3vg7jl"]
+
+[ext_resource type="Texture2D" uid="uid://dmdmmy0asbcvy" path="res://Pictures/Login_Normal.png" id="1_0kt34"]
+[ext_resource type="Script" uid="uid://bcmc4he4gx5s7" path="res://script/menu_panel.gd" id="1_im768"]
+[ext_resource type="Texture2D" uid="uid://cqr20et5aybm1" path="res://Pictures/Login_Press.png" id="2_ksnff"]
+[ext_resource type="Texture2D" uid="uid://d3mqbccdvcul3" path="res://Pictures/Login_Hover.png" id="3_xyxw4"]
+[ext_resource type="Texture2D" uid="uid://n027hkma8ads" path="res://Pictures/User_Normal.png" id="4_4p1tl"]
+[ext_resource type="Texture2D" uid="uid://2w02cmscfgku" path="res://Pictures/Login_Disable.png" id="5_4kf4q"]
+[ext_resource type="Texture2D" uid="uid://1hrielrseivp" path="res://Pictures/User_Press.png" id="5_im768"]
+[ext_resource type="Texture2D" uid="uid://s5ldbmdf8pp2" path="res://Pictures/User_Hover.png" id="6_jjqj5"]
+[ext_resource type="Texture2D" uid="uid://m7taru6an3rw" path="res://Pictures/KeyParameter_Normal.png" id="7_x7pfa"]
+[ext_resource type="Texture2D" uid="uid://cvfilsws5mbhn" path="res://Pictures/KeyParameter_Press.png" id="8_dpexy"]
+[ext_resource type="Texture2D" uid="uid://catlrwolvyr0m" path="res://Pictures/KeyParameter_Hover.png" id="9_4kf4q"]
+[ext_resource type="Texture2D" uid="uid://vjtpab5yggfl" path="res://Pictures/User_Disable.png" id="9_uujwp"]
+[ext_resource type="Texture2D" uid="uid://dferqghy2f3bh" path="res://Pictures/Status_Normal.png" id="10_uujwp"]
+[ext_resource type="Texture2D" uid="uid://cjkfy5u86dxsk" path="res://Pictures/Status_Press.png" id="11_evwl6"]
+[ext_resource type="Texture2D" uid="uid://cvacp551cqlsa" path="res://Pictures/Status_Hover.png" id="12_hwlfg"]
+[ext_resource type="Texture2D" uid="uid://gy8pym44u8i4" path="res://Pictures/KeyParameter_Disable.png" id="13_evwl6"]
+[ext_resource type="Texture2D" uid="uid://b511ih80sjh7t" path="res://Pictures/Status_Disable.png" id="17_hwlfg"]
+
+[node name="Control" type="Control" unique_id=132840202]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_im768")
+
+[node name="HBoxContainer_SideBar" type="HBoxContainer" parent="." unique_id=952320179]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 96.0
+
+[node name="TextureButton_Login" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=193373312]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+tooltip_text = "Login"
+texture_normal = ExtResource("1_0kt34")
+texture_pressed = ExtResource("2_ksnff")
+texture_hover = ExtResource("3_xyxw4")
+texture_disabled = ExtResource("5_4kf4q")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton_User" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=506587073]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+tooltip_text = "User"
+texture_normal = ExtResource("4_4p1tl")
+texture_pressed = ExtResource("5_im768")
+texture_hover = ExtResource("6_jjqj5")
+texture_disabled = ExtResource("9_uujwp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton_KeyParameter" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=844998475]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+tooltip_text = "KeyParameter"
+texture_normal = ExtResource("7_x7pfa")
+texture_pressed = ExtResource("8_dpexy")
+texture_hover = ExtResource("9_4kf4q")
+texture_disabled = ExtResource("13_evwl6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton_Status" type="TextureButton" parent="HBoxContainer_SideBar" unique_id=12477322]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+tooltip_text = "Status"
+texture_normal = ExtResource("10_uujwp")
+texture_pressed = ExtResource("11_evwl6")
+texture_hover = ExtResource("12_hwlfg")
+texture_disabled = ExtResource("17_hwlfg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label_Watchdog" type="Label" parent="." unique_id=768512978]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 1.0
+offset_right = 374.0
+offset_bottom = 24.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_ID" type="Label" parent="." unique_id=1711540103]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 25.0
+offset_right = 374.0
+offset_bottom = 48.0
+text = "None"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_Permission" type="Label" parent="." unique_id=1125097918]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 48.0
+offset_right = 374.0
+offset_bottom = 71.0
+text = "None"
+horizontal_alignment = 1
+vertical_alignment = 1
