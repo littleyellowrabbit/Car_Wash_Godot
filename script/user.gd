@@ -2,61 +2,49 @@ extends Node
 
 @onready var tree_userlist : Tree = $HBoxContainer/Tree_UserList
 @onready var lineedit_id : LineEdit = $HBoxContainer/VBoxContainer_AdjustUser/LineEdit_ID
-@onready var lineerid_password : LineEdit = $HBoxContainer/VBoxContainer_AdjustUser/LineEdit_Password
+@onready var lineedit_password : LineEdit = $HBoxContainer/VBoxContainer_AdjustUser/LineEdit_Password
 @onready var optionbutton_permission : OptionButton = $HBoxContainer/VBoxContainer_AdjustUser/OptionButton_Permission
 @onready var button_adduser : Button = $HBoxContainer/VBoxContainer_AdjustUser/Button_AddUser
 @onready var button_deleteuser : Button = $HBoxContainer/VBoxContainer_AdjustUser/Button_DeleteUser
 @onready var label_result : Label = $HBoxContainer/VBoxContainer_AdjustUser/Label_Result
 
 func _ready() -> void:
-	tree_userlist.item_selected.connect(_on_item_selected)
-	# 1. 必須先建立「根節點」（Root），這是所有項目的起點
-	var root: TreeItem = tree_userlist.create_item()
-	root.set_text(0, "我的知識庫") # 0 代表第一欄（Column）
-	root.set_text(1, "QQ") # 0 代表第一欄（Column）
+	button_adduser.pressed.connect(user_add)
+	button_deleteuser.pressed.connect(user_delete)
+	_update_tree()
 	
-	# 2. 建立第一層子節點（家長是 root）
-	var category1: TreeItem = tree_userlist.create_item(root)
-	category1.set_text(0, "程式語言")
-	
-	var category2: TreeItem = tree_userlist.create_item(root)
-	category2.set_text(0, "遊戲美術")
-	
-	# 3. 建立第二層子節點（家長是 category1）
-	var sub_item1: TreeItem = tree_userlist.create_item(category1)
-	sub_item1.set_text(0, "GDScript")
-	# 你還可以為它綁定隱藏的自訂資料（例如資料庫 ID 或物件）
-	sub_item1.set_metadata(0, {"id": 101, "type": "script"})
-	
-	var sub_item2: TreeItem = tree_userlist.create_item(category1)
-	sub_item2.set_text(0, "C#")
-
-func _on_item_selected() -> void:
-	# 獲取目前被選取的 TreeItem
-	var selected_item: TreeItem = tree_userlist.get_selected()
-	
-	if selected_item:
-		# 讀取顯示的文字
-		var text = selected_item.get_text(0)
-		# 讀取隱藏的綁定資料
-		var metadata = selected_item.get_metadata(0)
-		
-		print("玩家點擊了：", text)
-		print("附帶的資料為：", metadata)
-
-
 func _update_tree() -> void:
+	tree_userlist.clear()
+	var permission: TreeItem = tree_userlist.create_item()
+	permission.set_text(0, "Permission")
+	permission.set_selectable(0,false)
 	
+	var administrator: TreeItem = tree_userlist.create_item(permission)
+	administrator.set_text(0, "Administrator")
+	administrator.set_selectable(0,false)
+	var engineer: TreeItem = tree_userlist.create_item(permission)
+	engineer.set_text(0, "Engineer")
+	engineer.set_selectable(0,false)
+	var operator: TreeItem = tree_userlist.create_item(permission)
+	operator.set_text(0, "Operator")
+	operator.set_selectable(0,false)
 	
-	"""
-	var url = "/account/login"
-	var body = {
-		"name" : lineedit_id.text,
-		"password" : lineedit_password.text
-	}
-	button_login.disabled = true
-	var response_args = await HttpManager.send_post(url,body,false)
-	button_login.disabled = false
+	var user_list = await _get_user_list()
+	for data in user_list:
+		if data.get('permission') == 'Administrator':
+			var tree_item = tree_userlist.create_item(administrator)
+			tree_item.set_text(0,data.get('name'))
+		if data.get('permission') == 'Engineer':
+			var tree_item = tree_userlist.create_item(engineer)
+			tree_item.set_text(0,data.get('name'))
+		if data.get('permission') == 'Operator':
+			var tree_item = tree_userlist.create_item(operator)
+			tree_item.set_text(0,data.get('name'))
+	
+func _get_user_list() -> Array:
+	var url = "/account/user_list"
+	var body = {}
+	var response_args = await HttpManager.send_get(url,true)
 	var result = response_args[0]
 	var response_code = response_args[1]
 	var _response_headers = response_args[2]
@@ -66,17 +54,68 @@ func _update_tree() -> void:
 		var parse_err = json.parse(response_body.get_string_from_utf8())
 		if parse_err == OK:
 			var response_data = json.get_data()
-			Jwt.user_id = response_data.get("id",0)
-			Jwt.permission = response_data.get("permission","None")
-			Jwt.expire_time = response_data.get("exp",0)
-			Jwt.access_token = response_data.get("access_token","")
-			Jwt.refresh_token = response_data.get("refresh_token","")
-			Jwt.user_name = lineedit_id.text
-			SignalManager.change_to_status.emit()
-			lineedit_id.text=""
-			lineedit_password.text=""
-			_check_login()
-			_result_edit("Login success")
+			label_result.text = "Tree update success"
+			return response_data
 		else:
-			_result_edit("login response failed.parse failed")
-	"""
+			label_result.text = "Tree update response failed"
+			return []
+	else:
+		return []
+			
+func user_add() -> void:
+	var url = "/account/user_add"
+	var body = {
+		"name" : lineedit_id.text,
+		"password" : lineedit_password.text,
+		"permission" : optionbutton_permission.get_item_text(optionbutton_permission.selected)
+	}
+	button_adduser.disabled = true
+	var response_args = await HttpManager.send_post(url,body,true)
+	button_adduser.disabled = false
+	var result = response_args[0]
+	var response_code = response_args[1]
+	var _response_headers = response_args[2]
+	var response_body = response_args[3]
+	if response_code == 200 and result == HTTPRequest.RESULT_SUCCESS:
+		var json = JSON.new()
+		var parse_err = json.parse(response_body.get_string_from_utf8())
+		if parse_err == OK:
+			await _update_tree()
+			label_result.text = "Add user success"
+		else:
+			label_result.text = "Add user failed"
+			
+func user_delete() -> void:
+	if _on_item_selected() != 'None' :
+		var url = "/account/user_delete"
+		var body = {
+			"name" : _on_item_selected()
+		}
+		print(_on_item_selected())
+		button_deleteuser.disabled = true
+		var response_args = await HttpManager.send_delete(url,body,true)
+		button_deleteuser.disabled = false
+		var result = response_args[0]
+		var response_code = response_args[1]
+		var _response_headers = response_args[2]
+		var response_body = response_args[3]
+		if response_code == 200 and result == HTTPRequest.RESULT_SUCCESS:
+			var json = JSON.new()
+			var parse_err = json.parse(response_body.get_string_from_utf8())
+			if parse_err == OK:
+				await _update_tree()
+				label_result.text = "Delete user success"
+			else:
+				label_result.text = "Delete user failed"
+	else:
+		label_result.text = "Delete user failed"
+
+func _on_item_selected() -> String:
+	var selected_item: TreeItem = tree_userlist.get_selected()
+	var item_content = ''
+	if selected_item != null:
+		item_content = selected_item.get_text(0)
+	else:
+		item_content = "None"
+	
+	return item_content

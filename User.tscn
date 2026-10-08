@@ -19,11 +19,10 @@ offset_right = 375.0
 offset_bottom = 278.0
 
 [node name="Tree_UserList" type="Tree" parent="HBoxContainer" unique_id=2086872668]
-custom_minimum_size = Vector2(100, 200)
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-columns = 2
 allow_search = false
 enable_recursive_folding = false
 enable_drag_unfolding = false
@@ -33,7 +32,7 @@ auto_tooltip = false
 layout_mode = 2
 
 [node name="LineEdit_ID" type="LineEdit" parent="HBoxContainer/VBoxContainer_AdjustUser" unique_id=1498810391]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 size_flags_vertical = 3
 placeholder_text = "ID"

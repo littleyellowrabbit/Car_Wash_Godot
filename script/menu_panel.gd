@@ -38,15 +38,11 @@ func update_user_and_permission() -> void:
 		if Jwt.permission in ["Administrator","Engineer"]:
 			button_disabled(false,[texturebutton_login,texturebutton_user,texturebutton_keyparameter,texturebutton_status])
 		else:
-			#button_disabled(false,[texturebutton_login,texturebutton_status])
-			button_disabled(false,[texturebutton_user,texturebutton_login,texturebutton_status])
-			button_disabled(true,[texturebutton_keyparameter])
-			#button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
+			button_disabled(false,[texturebutton_login,texturebutton_status])
+			button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
 	else:
-		#button_disabled(false,[texturebutton_login,texturebutton_status])
-		button_disabled(false,[texturebutton_user,texturebutton_login,texturebutton_status])
-		button_disabled(true,[texturebutton_keyparameter])
-		#button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
+		button_disabled(false,[texturebutton_login,texturebutton_status])
+		button_disabled(true,[texturebutton_user,texturebutton_keyparameter])
 		label_id.text = "None"
 		label_permission.text = "None"
 		

@@ -15,6 +15,14 @@ var scene_status_file = load("res://Status.tscn")
 @onready var scene_status = scene_status_file.instantiate()
 
 func _ready() -> void:
+	
+	DisplayServer.window_set_size(Vector2i(380, 380))
+	var screen_id = DisplayServer.window_get_current_screen()
+	var screen_size = DisplayServer.screen_get_size(screen_id)
+	var center_pos = (screen_size - Vector2i(380, 380)) / 2
+	DisplayServer.window_set_position(center_pos)
+	
+	
 	side_bar.add_child(scene_menupanel)
 	main_panel.add_child(scene_status)
 	

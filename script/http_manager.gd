@@ -89,3 +89,87 @@ func _refresh_token() -> bool:
 func _force_logout():
 	Jwt.logout()
 	SignalManager.force_logout.emit()
+	
+	
+func send_get(url_path: String, needs_auth: bool = true) -> Array:
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.timeout = 3.0
+	
+	var full_url = ReadConfig.api_server_url + url_path
+	var headers = ["Content-Type: application/json"]
+	if needs_auth:
+		#"Authorization: Bearer "Notice after Bearer have space
+		headers.append("Authorization: Bearer " + Jwt.access_token)
+		
+	var body = ""
+	var error = http_request.request(full_url, headers, HTTPClient.METHOD_GET, body)
+	if error != OK:
+		http_request.queue_free()
+		return [error, 0, [], PackedByteArray()]
+		
+	var response = await http_request.request_completed
+	http_request.queue_free()
+	var response_code = response[1]
+	if needs_auth == true and response_code == 401:
+		if is_refreshing_token:
+			var success = await refresh_completed
+			if success:
+				return await send_get(url_path, needs_auth)
+			else:
+				return [error, 401, [], PackedByteArray()]
+		
+		is_refreshing_token = true
+		var refresh_result = await _refresh_token()
+		is_refreshing_token = false
+		refresh_completed.emit(refresh_result)
+		
+		if refresh_result == true :
+			return await send_get(url_path, needs_auth)
+		else:
+			_force_logout()
+			SignalManager.change_to_login.emit()
+			
+	return response
+	
+	
+func send_delete(url_path: String, body_dict: Dictionary, needs_auth: bool = true) -> Array:
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.timeout = 3.0
+	
+	var full_url = ReadConfig.api_server_url + url_path
+	var headers = ["Content-Type: application/json"]
+	if needs_auth:
+		#"Authorization: Bearer "Notice after Bearer have space
+		headers.append("Authorization: Bearer " + Jwt.access_token)
+		
+	var body = JSON.stringify(body_dict)
+	var error = http_request.request(full_url, headers, HTTPClient.METHOD_DELETE, body)
+	if error != OK:
+		http_request.queue_free()
+		return [error, 0, [], PackedByteArray()]
+		
+	var response = await http_request.request_completed
+	http_request.queue_free()
+	var response_code = response[1]
+	if needs_auth == true and response_code == 401:
+		if is_refreshing_token:
+			var success = await refresh_completed
+			if success:
+				return await send_delete(url_path, body_dict, needs_auth)
+			else:
+				return [error, 401, [], PackedByteArray()]
+		
+		is_refreshing_token = true
+		var refresh_result = await _refresh_token()
+		is_refreshing_token = false
+		refresh_completed.emit(refresh_result)
+		
+		if refresh_result == true :
+			return await send_delete(url_path, body_dict, needs_auth)
+		else:
+			_force_logout()
+			SignalManager.change_to_login.emit()
+			
+	return response
